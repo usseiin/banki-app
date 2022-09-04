@@ -1,4 +1,5 @@
 import 'package:banki_app/features/home_screen/home_screen.dart';
+import 'package:banki_app/features/stocks_screen/stock_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
   int currentIndex = 0;
   List<Widget> items = [
     const HomeScreen(),
-    const Center(child: Text('Stocks')),
+    const StocksScreen(),
     const Center(child: Text('Reports')),
     const Center(child: Text('Cards'))
   ];
