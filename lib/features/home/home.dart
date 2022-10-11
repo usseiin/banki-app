@@ -1,4 +1,5 @@
 import 'package:banki_app/features/home_screen/home_screen.dart';
+import 'package:banki_app/features/reports/reports_screen.dart';
 import 'package:banki_app/features/stocks_screen/stock_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   List<Widget> items = [
     const HomeScreen(),
     const StocksScreen(),
-    const Center(child: Text('Reports')),
+    const ReportScreen(),
     const Center(child: Text('Cards'))
   ];
   @override

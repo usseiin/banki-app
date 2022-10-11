@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           ),
           centerTitle: true,
           toolbarHeight: 75,
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.transparent,
           elevation: 0,
           iconTheme: IconThemeData(
             color: Colors.black,

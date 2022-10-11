@@ -9,14 +9,7 @@ class StocksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const CircleAvatar( child: Icon(Icons.person)),
-        title: const Text('Stock'),
-        actions: const [
-          Icon(Icons.person_outline),
-          Icon(Icons.notifications_outlined),
-        ],
-      ),
+      appBar: const StockTopBar(),
       backgroundColor: BColor.gblue,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -24,8 +17,6 @@ class StocksScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                const StockTopBar(),
-                const SizedBox(height: 15),
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: const BoxDecoration(
@@ -89,7 +80,83 @@ class StocksScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  width: double.infinity,
+                  height: 36,
+                  alignment: Alignment.bottomLeft,
+                  child: const Text(
+                    'Investments',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: const CircleAvatar(
+                          child: Icon(Icons.create_sharp),
+                        ),
+                        title: const Text('title'),
+                        subtitle: Row(
+                          children: const [
+                            Text('subtitle'),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('subtitle2')
+                          ],
+                        ),
+                        trailing: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [Text('text1'), Text('text2')],
+                        ),
+                      );
+                    },
+                    itemCount: 4,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  width: double.infinity,
+                  height: 36,
+                  alignment: Alignment.bottomLeft,
+                  child: const Text(
+                    'Stocks Option',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: const CircleAvatar(
+                          child: Icon(Icons.create_sharp),
+                        ),
+                        title: const Text('title'),
+                        subtitle: Row(
+                          children: const [
+                            Text('subtitle'),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('subtitle2')
+                          ],
+                        ),
+                        trailing: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [Text('text1'), Text('text2')],
+                        ),
+                      );
+                    },
+                    itemCount: 4,
+                  ),
+                ),
               ],
             ),
           ),
@@ -99,33 +166,35 @@ class StocksScreen extends StatelessWidget {
   }
 }
 
-class StockTopBar extends StatelessWidget {
+class StockTopBar extends StatelessWidget with PreferredSizeWidget {
   const StockTopBar({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        CircleAvatar(child: Icon(Icons.person)),
+    return AppBar(
+      leading: const Padding(
+        padding: EdgeInsets.only(left: 20.0),
+        child: CircleAvatar(
+          // maxRadius: 5,
+          child: Icon(Icons.person),
+        ),
+      ),
+      title: const Text('Stocks'),
+      actions: const [
+        Icon(Icons.person_outline),
         SizedBox(
           width: 10,
         ),
-        Expanded(
-          child: Center(
-            child: Text(
-              'Stocks',
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
-          child: Icon(Icons.person_outline),
-        ),
         Icon(Icons.notifications_outlined),
+        SizedBox(
+          width: 20,
+        )
       ],
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
 }

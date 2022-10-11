@@ -1,8 +1,10 @@
 import 'package:flutter/painting.dart';
 
 class Lato {
+  static const String fontPath = 'fonts';
   static const thin = 'fonts/Lato/Lato-Thin.ttf';
   static const bold = 'fonts/Lato/Lato-Bold.ttf';
+  static const font = '$fontPath/font.ttf';
 }
 
 class BColor {

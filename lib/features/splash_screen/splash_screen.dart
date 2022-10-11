@@ -14,13 +14,17 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('images/banki_icon2.png', width: 60),
+            Image.asset('assets/images/banki_icon2.png', width: 60),
             const SizedBox(
               height: 24,
             ),
             const Text(
               'Banki',
-              style: TextStyle(fontSize: 45, fontFamily: Lato.bold),
+              style: TextStyle(
+                fontSize: 45,
+                fontFamily: 'fontss',
+                color: Colors.white,
+              ),
             ),
           ],
         ),
