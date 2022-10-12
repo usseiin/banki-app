@@ -2,7 +2,7 @@ import 'package:banki_app/features/auth_screen/sign_up.dart';
 import 'package:banki_app/features/splash_screen/get_started.dart';
 import 'package:flutter/material.dart';
 
-import '../home/home.dart';
+import '../bottom_nav/app_bottom_nav_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class _SignInScreenState extends State<SignInScreen> {
               AuthButton(
                 text: 'Sign in',
                 onClick: () {
-                  Navigator.pushNamed(context, Home.routeName);
+                  Navigator.pushNamed(context, BottomNavigators.routeName);
                 },
               ),
               Row(

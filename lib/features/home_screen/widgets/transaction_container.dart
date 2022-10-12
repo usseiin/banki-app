@@ -1,3 +1,4 @@
+import 'package:banki_app/features/home_screen/screens/send_money_screen/send_money_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/constants.dart';
@@ -25,7 +26,12 @@ class TransContainer extends StatelessWidget {
           TransactionContanerBtn(
             icon: Icons.double_arrow,
             onClicked: () {
-              // TODO
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SendMoneycreen(),
+                ),
+              );
             },
             label: 'Send money',
           ),
@@ -55,17 +61,20 @@ class TransactionContanerBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 45,
-          width: 45,
-          decoration: const BoxDecoration(color: BColor.gblue),
-          child: Icon(icon),
-        ),
-        const SizedBox(height: 5),
-        Text(label)
-      ],
+    return GestureDetector(
+      onTap: onClicked,
+      child: Column(
+        children: [
+          Container(
+            height: 45,
+            width: 45,
+            decoration: const BoxDecoration(color: BColor.gblue),
+            child: Icon(icon),
+          ),
+          const SizedBox(height: 5),
+          Text(label)
+        ],
+      ),
     );
   }
 }
