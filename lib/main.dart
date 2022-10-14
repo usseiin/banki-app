@@ -1,7 +1,7 @@
 import 'package:banki_app/constants/constants.dart';
+import 'package:banki_app/features/bottom_nav/app_bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'features/auth_screen/sign_up.dart';
 import 'route.dart';
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       title: 'Banki-App',
-      home: const SignUpScreen(),
+      home: const BottomNavigators(),
     );
   }
 }

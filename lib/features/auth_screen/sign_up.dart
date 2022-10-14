@@ -12,6 +12,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  bool isRemember = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,16 +63,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const [
+                              children: [
                                 Padding(
-                                  padding: EdgeInsets.only(top: 5.0, right: 4),
-                                  child: Icon(
-                                    Icons.square_outlined,
-                                    size: 16,
-                                    color: Colors.grey,
+                                  padding:
+                                      const EdgeInsets.only(top: 5.0, right: 4),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isRemember = !isRemember;
+                                      });
+                                    },
+                                    child: Icon(
+                                      isRemember
+                                          ? Icons.check_box
+                                          : Icons.square_outlined,
+                                      size: 16,
+                                      color: Colors.grey,
+                                    ),
                                   ),
                                 ),
-                                Text(
+                                const Text(
                                   'Remember me',
                                   style: TextStyle(fontSize: 12),
                                 )
@@ -82,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       const SizedBox(height: 20),
                       AuthButton(
-                        text: 'Sign in',
+                        text: 'Sign up',
                         onClick: () {},
                       ),
                       const SizedBox(height: 20),
@@ -95,7 +106,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           TextButton(
                             onPressed: () {
-                              // TODO: navigate to signin screen
                               Navigator.pushNamed(
                                   context, SignInScreen.routeName);
                             },
@@ -108,7 +118,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ],
                       ),
-                      // const Expanded(child: SizedBox()),
                     ],
                   ),
                 ),
